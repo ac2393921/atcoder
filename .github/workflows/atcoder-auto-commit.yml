@@ -24,9 +24,6 @@ jobs:
           git config user.name $EMAIL
           git remote set-url origin https://github.com/${NAME}/${REPO}.git
           git add .
-          git commit -m "add: solver"
-          git pull
-          git push origin main
         env:
           NAME: "ac2393921"
           EMAIL: "ac2393921@gmail.com"
