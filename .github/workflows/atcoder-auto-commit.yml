@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
         with:
           ref: main
       - name: Check diff
@@ -24,6 +24,9 @@ jobs:
           git config user.name $EMAIL
           git remote set-url origin https://github.com/${NAME}/${REPO}.git
           git add .
+          git commit -m "add: solver"
+          git pull
+          git push origin main
         env:
           NAME: "ac2393921"
           EMAIL: "ac2393921@gmail.com"
