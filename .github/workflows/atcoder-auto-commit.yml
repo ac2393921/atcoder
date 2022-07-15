@@ -9,14 +9,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
         with:
           ref: main
       - name: Check diff
         id: diff
         run: |
           git add -N .
-          git diff --name-only --exit-code
+          echo $(git diff --name-only --exit-code)
         continue-on-error: true
       - name: Run commit and push
         run: |
