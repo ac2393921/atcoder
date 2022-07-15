@@ -13,7 +13,7 @@ jobs:
         run: |
           git config user.name ${NAME}
           git config user.email ${EMAIL}
-          git remote set-url origin https://${NAME}:${{ secrets.USER_GITHUB }}@github.com/${NAME}/${REPO}
+          git remote set-url origin https://github.com/${NAME}/${REPO}.git
           git add .
           git commit -m "add: solver"
           git pull
