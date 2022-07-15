@@ -14,11 +14,6 @@ jobs:
           echo $NAME
           echo $EMAIL
           echo $REPO
-          git config user.name ${NAME}
-          git config user.email ${EMAIL}
-          git add .
-          git commit -m "add: solver"
-          git push origin main
         env:
           NAME: "ac2393921"
           EMAIL: "ac2393921@gmail.com"
