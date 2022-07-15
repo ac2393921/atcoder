@@ -11,6 +11,9 @@ jobs:
     steps:
       - name: Run commit and push
         run: |
+          echo $NAME
+          echo $EMAIL
+          echo $REPO
           git config user.name ${NAME}
           git config user.email ${EMAIL}
           git add .
