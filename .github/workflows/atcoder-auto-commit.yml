@@ -9,10 +9,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: main
       - name: Run commit and push
         run: |
+          pwd
           git config user.email "action@github.com"
           git config user.name "GitHub Action"
+          git remote set-url origin https://github.com/${NAME}/${REPO}.git
+          git add .
+          git commit -m "add: solver"
+          git pull
+          git push origin main
         env:
           NAME: "ac2393921"
           REPO: "atcoder"
