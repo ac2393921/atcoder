@@ -9,8 +9,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Commit & Push changes
-        uses: actions-js/push@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: "master" #追加
+      - uses: actions/checkout@v2
+      - name: Commit and Push
+        run: sh ./.github/push.sh
