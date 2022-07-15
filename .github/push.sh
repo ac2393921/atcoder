@@ -3,6 +3,8 @@
 git add -N .
 set +e
 git diff --name-only --exit-code
+git diff --name-only --exit-code &> aaa.txt
+
 echo $(git diff --name-only --exit-code)
 
 if [ $? -eq 1 ]; then
