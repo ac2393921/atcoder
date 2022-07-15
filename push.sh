@@ -12,6 +12,7 @@ if [ $? -eq 1 ]; then
     git config --global user.name "ac2393921"
     git add .
     git commit -m "add: solver"
+    git remote add origin git@github.com:ac2393921/atcoder
     git push origin main
 else
     echo 'There are no changes'
