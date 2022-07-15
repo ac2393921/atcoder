@@ -1,0 +1,24 @@
+name: Atcoder-auto-commit-and-push
+
+on:
+  schedule: # execute every 24 hours
+    - cron: "* */24 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run commit and push
+        run: |
+          git config user.name ${NAME}
+          git config user.email ${EMAIL}
+          git remote set-url origin https://${NAME}:${{ secrets.USER_GITHUB }}@github.com/${NAME}/${REPO}
+          git add .
+          git commit -m "add: solver"
+          git pull
+          git push origin main
+        env:
+          NAME: "ac2393921"
+          EMAIL: "ac2393921@gmail.com"
+          REPO: "atcoder"
