@@ -9,25 +9,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Commit & Push changes
+        uses: actions-js/push@master
         with:
-          ref: main
-      - name: Check diff
-        id: diff
-        run: |
-          git add -N .
-          echo $(git diff --name-only --exit-code)
-        continue-on-error: true
-      - name: Run commit and push
-        run: |
-          git config user.email $NAME
-          git config user.name $EMAIL
-          git remote set-url origin https://github.com/${NAME}/${REPO}.git
-          git add .
-          git commit -m "add: solver"
-          git pull
-          git push origin main
-        env:
-          NAME: "ac2393921"
-          EMAIL: "ac2393921@gmail.com"
-          REPO: "atcoder"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: "master" #追加
