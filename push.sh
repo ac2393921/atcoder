@@ -1,7 +1,6 @@
 #!/bin/bash
 DIR="/Users/ac2393921/work/github.com/ac2393921/atcoder"
 cd $DIR
-touch aaa.py
 
 git add -N .
 set +e
