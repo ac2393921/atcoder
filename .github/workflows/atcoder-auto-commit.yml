@@ -11,8 +11,8 @@ jobs:
     steps:
       - name: Run commit and push
         run: |
-          git config --local user.name ${NAME}
-          git config --local user.email ${EMAIL}
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
           git remote set-url origin https://github.com/${NAME}/${REPO}.git
           git add .
           git commit -m "add: solver"
@@ -20,5 +20,4 @@ jobs:
           git push origin main
         env:
           NAME: "ac2393921"
-          EMAIL: "ac2393921@gmail.com"
           REPO: "atcoder"
