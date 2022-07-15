@@ -5,6 +5,8 @@ set +e
 git diff --name-only --exit-code
 
 echo 'There are changes'
+git config --global user.email "ac2393921@gmail.com"
+git config --global user.name "ac2393921"
 git add .
 git commit -m "add: solver"
 git push origin main
