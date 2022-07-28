@@ -1,6 +1,3 @@
-a, b = map(int, input().split())
-if a <= b:
-    print(a)
-else:
-    print(a - 1)
+S = input()
+print(700 + (100 * S.count("o")))
 
