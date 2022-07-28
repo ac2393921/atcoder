@@ -1,5 +1,7 @@
-S = input()
-if len(set(S)) == 3:
-    print("Yes")
-else:
-    print("No")
+A = int(input())
+B = int(input())
+C = int(input())
+D = int(input())
+
+print(min(A, B) + min(C, D))
+
