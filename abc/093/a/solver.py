@@ -1,7 +1,5 @@
-A = int(input())
-B = int(input())
-C = int(input())
-D = int(input())
-
-print(min(A, B) + min(C, D))
-
+A, B, C = map(int, input().split())
+if A + B >= C:
+    print("Yes")
+else:
+    print("No")
