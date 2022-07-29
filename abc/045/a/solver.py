@@ -1,5 +1,11 @@
-a = int(input())
-b = int(input())
-h = int(input())
-print((a + b) * h // 2)
-
+N = int(input())
+K = int(input())
+X = int(input())
+Y = int(input())
+ans = 0
+for i in range(1, N + 1):
+    if i <= K:
+        ans += X
+    else:
+        ans += Y
+print(ans)
