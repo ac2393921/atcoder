@@ -1,7 +1,5 @@
-A, B, C = map(int, input().split())
-if A == B:
-    print(C)
-elif B == C:
-    print(A)
-else:
-    print(B)
+N = int(input())
+A = int(input())
+
+print(N ** 2 - A)
+
