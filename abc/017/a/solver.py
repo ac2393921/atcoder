@@ -1,5 +1,5 @@
 ans = 0
 for _ in range(3):
     s, e = list(map(int, input().split()))
-    ans += s * (e / 10)
-print(ans)
+    ans += s * (e // 10)
+print(int(ans))
