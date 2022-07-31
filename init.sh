@@ -18,23 +18,19 @@ fi
 if [ ! -d $2 ]; then
   cd $1
 
-  for i in {1..100}; do
-    mkdir $(printf "%03d" $i)
-    cd $(printf "%03d" $i)
-    for rate in {a..f}; do
-      mkdir $rate
-      mkdir $rate/test
-      mkdir $rate/test/in
-      mkdir $rate/test/out
-      touch $rate/solver.py
-      for i in {1..3}; do
-        touch $rate/test/in/in$i.txt
-        touch $rate/test/out/out$i.txt
-      done
-
-      # echo "Makeing $rate"
+  mkdir $(printf "%03d" $2)
+  cd $(printf "%03d" $2)
+  for rate in {a..f}; do
+    mkdir $rate
+    mkdir $rate/test
+    mkdir $rate/test/in
+    mkdir $rate/test/out
+    touch $rate/solver.py
+    for i in {1..3}; do
+      touch $rate/test/in/in$2.txt
+      touch $rate/test/out/out$2.txt
     done
-    cd ../
+
   done
 
 else
