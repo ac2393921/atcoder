@@ -1,16 +1,16 @@
-N = int(input())
-A = list(map(int, input().split()))
+n = int(input())
+a = list(map(int, input().split()))
+
+for i in range(n):
+    a[i] -= 1
+same = 0
 ans = 0
-same_idx = 0
-dif_cnt = 0
-d = {a: i + 1 for i, a in enumerate(A)}
+for (i, j) in enumerate(a):
+    if i == j:
+        same += 1
 
-for i in range(N):
-    # if A[A[i]-1] > A[i]:
-    #     print(A[A[i]], A[i])
-    if A[i] == i + 1:
-        same_idx += 1
-    elif A[A[i]-1] > A[i] and d[A[A[i]]] == i + 1:
-        dif_cnt += 1
+    if i < j and a[j] == i:
+        ans += 1
+ans += same * (same - 1) // 2
 
-print(same_idx, dif_cnt)
+print(ans)
