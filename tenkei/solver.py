@@ -27,16 +27,34 @@ sys.setrecursionlimit(10 ** 6)
 INF = float('inf')
 MOD = 10 ** 9 + 7
 
-N = i_input()
-A = i_list()
-B = i_list()
-d = [0] * N
-d[0] = 0
-d[1] = A[0]
 
-for i in range(2, N):
-    print(d[i-1]+A[i-1])
-    print(d[i-2]+B[i-2])
-    d[i] = min(d[i-1]+A[i-1], d[i-2]+B[i-2])
+def main():
+    def solve(M):
+        cnt = 0
+        pre = 0
+        for i in range(N):
+            if A[i] - pre >= A[i] >= M:
+                cnt += 1
+                pre = A[i]
+        if cnt >= K:
+            return True
+        return False
 
-print(d[N-1])
+    N, L = i_map()
+    K = i_input()
+    A = i_list()
+
+    ok = -1
+    ng = L
+    mid = (ok + L) // 2
+
+    while (ok - ng) > 1:
+        if solve(mid):
+            ok = mid
+        else:
+            ng = mid
+    print(ok)
+
+
+if __name__ == "__main__":
+    main()
