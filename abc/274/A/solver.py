@@ -29,10 +29,8 @@ MOD = 10 ** 9 + 7
 
 
 def main():
-    N = ii()
-    H = il()
-
-    print(H.index(max(H))+1)
+    A, B = im()
+    print(f'{B/A:.3f}')
 
 
 if __name__ == "__main__":
