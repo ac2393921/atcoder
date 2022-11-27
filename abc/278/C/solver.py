@@ -30,21 +30,7 @@ MOD = 10 ** 9 + 7
 
 
 def main():
-    N, Q = im()
-    ff = defaultdict(set)
-
-    for i in range(Q):
-        t, a, b = il()
-        if t == 1:
-            ff[a].add(b)
-        if t == 2:
-            if b in ff[a]:
-                ff[a].remove(b)
-        if t == 3:
-            if b in ff[a] and a in ff[b]:
-                print("Yes")
-            else:
-                print("No")
+    ff = [[0]*(10**9) for _ in range(10**9)]
 
 
 if __name__ == "__main__":
