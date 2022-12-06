@@ -32,6 +32,18 @@ def main():
     N, M = im()
     A = il()
 
+    s, t = 0, 0
+    for i in range(M):
+        s += A[i] * (i+1)
+        t += A[i]
+
+    ans = s
+    for i in range(N-M):
+        s = s - t + A[i+M] * M
+        t = t - A[i] + A[i+M]
+        ans = max(ans, s)
+    print(ans)
+
 
 if __name__ == "__main__":
     main()
