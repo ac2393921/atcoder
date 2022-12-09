@@ -29,41 +29,24 @@ MOD = 10 ** 9 + 7
 
 
 def main():
-    def dfs(x, y, ans, n=1):
-        G[x][y] = 1
-        if n >= N:
-            return int(ans)
-
-        dx = [1, 1, 1, 0, 0, -1, -1, -1]
-        dy = [1, 0, -1, 1, -1, 1, 0, -1]
-
-        max_a = 0
-        max_nx, max_ny = 0, 0
-        for i in range(8):
-            nx = (x + dx[i]) % N
-            ny = (y + dy[i]) % N
-
-            if G[nx][ny]:
-                continue
-
-            if max_a < int(A[nx][ny]):
-                max_a = int(A[nx][ny])
-                max_nx = nx
-                max_ny = ny
-
-        ans += A[max_nx][max_ny]
-        return dfs(max_nx, max_ny, ans, n+1)
-
     N = ii()
     A = srl(N)
 
+    dx = [1, 1, 1, 0, 0, -1, -1, -1]
+    dy = [1, 0, -1, 1, -1, 1, 0, -1]
+
     ans = 0
-    for d in range(8):
-        for i in range(N):
-            for j in range(N):
-                G = [[0] * N for i in range(N)]
-                a = dfs(i, j, A[i][j])
-                ans = max(ans, a)
+    for x in range(N):
+        for y in range(N):
+            for i in range(8):
+                tmp = A[x][y]
+                for j in range(N-1):
+                    x = (x + dx[i]) % N
+                    y = (y + dy[i]) % N
+
+                    tmp += A[x][y]
+
+                ans = max(ans, int(tmp))
 
     print(ans)
 
