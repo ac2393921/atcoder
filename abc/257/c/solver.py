@@ -34,18 +34,18 @@ def main():
     ws = []
     now = 0
 
-    for i, w in enumerate(input().split()):
-        ws.append((w, S[i]))
+    for i, w in enumerate(im()):
+        ws.append((w, i))
         if S[i] == "1":
             now += 1
 
     ans = now
     ws = sorted(ws, key=lambda x: x[0])
 
-    for _, s in ws:
-        if s == "1":
+    for _, i in ws:
+        if S[i] == "1":
             now -= 1
-        else:
+        elif S[i] == "0":
             now += 1
 
         ans = max(ans, now)
