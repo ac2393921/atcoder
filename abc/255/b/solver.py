@@ -1,20 +1,42 @@
-import math
+import sys
+import re
+from math import ceil, floor, sqrt, pi, factorial, gcd
+from copy import deepcopy
+from collections import Counter, deque, defaultdict
+from heapq import heapify, heappop, heappush
+from itertools import accumulate, product, combinations, combinations_with_replacement
+from bisect import bisect, bisect_left, bisect_right
+from functools import reduce
+from decimal import Decimal, getcontext
+# input = sys.stdin.readline
+def ii(): return int(input())
+def im(): return map(int, input().split())
+def il(): return list(im())
+def ir(N): return [ii() for _ in range(N)]
+def irl(N): return [il() for _ in range(N)]
+def si(): return input()
+def sm(): return input().split()
+def sl(): return list(sm())
+def sr(N): return [si for _ in range(N)]
+def srs(N): return [sl() for _ in range(N)]
+def srl(N): return [list(si()) for _ in range(N)]
+def lcm(a, b): return a * b // gcd(a, b)
 
-n, k = [int(v) for v in input().split()]
-ik = [int(v) - 1 for v in input().split()]
-A = [[int(v) for v in input().split()] for _ in range(n)]
-maximum = 0
-for i, v in enumerate(A):
-    if i not in ik:
-        x, y = v
-        min_A = 0
-        min_i = 0
-        min_l = 0
-        for ii, j in enumerate(ik):
-            xx, yy = A[j]
-            length = math.sqrt((x - xx) ** 2 + (y - yy) ** 2)
-            if ii == 0 or length < min_l:
-                min_i = j
-                min_l = length
-        maximum = max(maximum, min_l)
-print(maximum)
+
+sys.setrecursionlimit(10 ** 6)
+INF = float('inf')
+MOD = 10 ** 9 + 7
+
+
+def main():
+    X, A, D, N = im()
+    S = [A + D * i for i in range(N)]
+
+    print(S)
+
+    # print(bisect(S, X))
+    # print(S[2])
+
+
+if __name__ == "__main__":
+    main()
