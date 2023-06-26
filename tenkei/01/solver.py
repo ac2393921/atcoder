@@ -29,41 +29,40 @@ MOD = 10 ** 9 + 7
 
 
 def main():
-    def judge(mid):
-        tmp = 0
-        cnt = 0
+    def check(n):
+        num = 0  # 何個切れたか
+        pre = 0  # 前回の切れ目
 
+        # 貪欲法
         for i in range(N):
-            # 羊羹の長さが指定の長さ(mid)より大きいか、
-            # 残りの羊羹の長さが指定の長さより大きいかを判定
-            if A[i] - tmp >= mid and L - A[i] >= mid:
-                cnt += 1
-                tmp = A[i]
+            # 切れ目が指定の数より大きければnumを1増加
+            if A[i] - pre >= n:
+                num += 1
+                pre = A[i]
 
-        # 切った数がK以上に切り分けられればTrue
-        if cnt >= K:
-            return True
-        else:
-            return False
+        # 最後のピースが指定より大きければ増加
+        if L - pre >= n:
+            num += 1
+
+        # 切った全てがn以上であればTrue
+        return (num >= K + 1)
 
     N, L = im()
     K = ii()
     A = il()
 
-    right = L
-    left = 0
+    # 二分探索
+    l, r = -1, L+1
+    while r - l > 1:
+        mid = (l+r)//2
 
-    while right - left > 1:
-        mid = (left + right) // 2
-
-        # 切り分けられた場合、最大化するために左端を大きくする
-        if judge(mid):
-            left = mid
-        # 切り分けられなかった場合、条件を小さくするために右端を小さくする
+        # 全て切れれば右にずらす
+        if check(mid):
+            l = mid
         else:
-            right = mid
+            r = mid
 
-    print(left)
+    print(l)
 
 
 if __name__ == "__main__":
