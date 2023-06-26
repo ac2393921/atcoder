@@ -30,6 +30,26 @@ MOD = 10 ** 9 + 7
 
 def main():
     N = ii()
+    l = []
+
+    for i in range(2 ** N):
+        tmp = 0
+        s = ""
+        for j in range(N):
+            if ((i >> j) & 1):
+                s += "("
+                tmp += 1
+            else:
+                s += ")"
+                tmp -= 1
+
+            if tmp < 0:
+                break
+
+        if tmp == 0:
+            l.append(s)
+
+    print(*sorted(l), sep="\n")
 
 
 if __name__ == "__main__":
