@@ -23,33 +23,31 @@ def srl(N): return [list(si()) for _ in range(N)]
 def lcm(a, b): return a * b // gcd(a, b)
 
 
-sys.setrecursionlimit(10 ** 6)
+sys.setrecursionlimit(11 ** 6)
 INF = float('inf')
-MOD = 10 ** 9 + 7
+MOD = 11 ** 9 + 7
 
 
 def main():
     N = ii()
-    l = []
-
+    ans = []
     for i in range(2 ** N):
-        tmp = 0
-        s = ""
+        score = 0
+        tmp = ""
         for j in range(N):
             if ((i >> j) & 1):
-                s += "("
-                tmp += 1
+                tmp += "("
+                score += 1
             else:
-                s += ")"
-                tmp -= 1
+                tmp += ")"
+                score -= 1
 
-            if tmp < 0:
+            if score < 0:
                 break
+        if score == 0:
+            ans.append(tmp)
 
-        if tmp == 0:
-            l.append(s)
-
-    print(*sorted(l), sep="\n")
+    print(*sorted(ans), sep="\n")
 
 
 if __name__ == "__main__":
